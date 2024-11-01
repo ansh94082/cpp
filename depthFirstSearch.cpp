@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 class treeNode{
@@ -14,6 +15,42 @@ class treeNode{
 
 
 };
+
+
+// void dfs(treeNode* root) {
+
+//     if(root == nullptr) 
+//         return;
+
+//     cout << root -> val << endl;
+
+//     for(auto i : root -> child)
+
+// }
+
+void bfs(treeNode* root) {
+    queue<treeNode*>q;
+
+    q.push(root);
+
+    while(!q.empty()) {
+
+        treeNode* f = q.front();
+        q.pop();
+        cout << f -> val << endl << " ";
+        for(auto i : f ->child) {
+            q.push(i);
+
+        } 
+    }
+
+}
+
+
+
+
+
+
 
 int main() {
 
@@ -33,6 +70,7 @@ int main() {
     node4 -> child = {node5 , node6 , node7};
     node8 -> child = {node9};
     
-
+    bfs(node0);
+    cout << endl;
 
 }
